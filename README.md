@@ -126,11 +126,6 @@ After the crew finishes (typically 1–3 minutes depending on model latency):
 | `output/plan.json` | Full structured `ProjectPlan` as JSON |
 | `output/gantt_chart.png` | Gantt chart coloured by milestone |
 
-### Example Gantt Chart
-
-> *(Screenshot of a generated chart will appear here after your first run)*
-
-![Gantt Chart](output/gantt_chart.png)
 
 ---
 
