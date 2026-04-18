@@ -1,0 +1,76 @@
+task_breakdown:
+  description: >
+    Carefully analyze the project_requirements for the {project} project and
+    break them down into individual tasks. Define each task's scope in detail,
+    set achievable timelines, and ensure that all dependencies are accounted
+    for:
+
+    {project_requirements}
+
+
+    Team members:
+
+    {team_members}
+  expected_output: >
+    A comprehensive list of project tasks, each containing:
+    - A unique task ID and descriptive task name
+    - A clear description of the work involved
+    - Estimated duration in days
+    - List of dependencies (other task IDs that must complete first)
+    - Assigned team member(s) responsible for the task
+    - Expected deliverable(s)
+
+    Present the breakdown as a structured table followed by any relevant
+    notes about sequencing or risk areas.
+
+time_resource_estimation:
+  description: >
+    Using the task breakdown provided, estimate the time and resources required
+    for each task in the {project} project. Consider the following context:
+
+    - Project objectives: {project_objectives}
+    - Industry: {industry}
+    - Team composition: {team_members}
+
+    For each task, provide a realistic estimate in hours (not days), and list
+    the specific resources (team roles, tools, or external services) required.
+    Take into account task complexity, potential blockers, and the skill level
+    of available team members.
+  expected_output: >
+    A detailed estimation report containing, for every task:
+    - Task name (matching the breakdown)
+    - Estimated time in hours (be specific, e.g. 8.0, 12.5)
+    - List of required resources (e.g. "Software Engineer", "Figma licence",
+      "Google Maps API key")
+    - A brief justification for the estimate
+
+    Ensure estimates are grounded in realistic industry standards for a
+    {industry} project of this scope.
+
+resource_allocation:
+  description: >
+    Using the task list and time estimates, allocate team members to tasks
+    for the {project} project and organise everything into milestones.
+
+    Team available:
+    {team_members}
+
+    Project context:
+    - Type: {project}
+    - Objectives: {project_objectives}
+    - Industry: {industry}
+
+    Rules:
+    1. Respect each team member's role (e.g. Designer should not write code).
+    2. Balance workload — avoid assigning one person to too many parallel tasks.
+    3. Group related tasks into named milestones with a clear purpose.
+    4. The output MUST conform exactly to the ProjectPlan Pydantic schema.
+  expected_output: >
+    A fully populated ProjectPlan object with:
+    - tasks: a list of TaskEstimate objects, each with task_name,
+      estimated_time_hours (float), and required_resources (list of strings)
+    - milestones: a list of Milestone objects, each with milestone_name and
+      tasks (list of task names belonging to that milestone)
+
+    Every task from the estimation step must appear in exactly one milestone.
+    The output must be valid JSON that matches the ProjectPlan schema.

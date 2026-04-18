@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "crewai-project-planner"
+version = "1.0.0"
+description = "Automated Project Planning, Estimation & Allocation using CrewAI multi-agent framework"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+license = "MIT"
+python = "^3.11"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+crewai = ">=0.80.0"
+openai = ">=1.30.0"
+python-dotenv = ">=1.0.0"
+pydantic = ">=2.7.0"
+pyyaml = ">=6.0.1"
+matplotlib = ">=3.9.0"
+numpy = ">=1.26.0"
+pandas = ">=2.2.0"
+
+[tool.poetry.scripts]
+plan = "main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
